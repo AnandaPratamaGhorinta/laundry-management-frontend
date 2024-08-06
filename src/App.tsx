@@ -41,7 +41,6 @@ const App = () => {
           <Sidebar collapsed={collapsed} />
           <Layout>
             <Header className={classes.header}>
-              {/* Replace with your logo path */}
               <Button
                 type="text"
                 icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
