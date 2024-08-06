@@ -1,5 +1,4 @@
 import { createUseStyles } from "react-jss";
-import { DataRendererContent } from "./WebDataRenderer";
 
 const useStyles = createUseStyles({
   detailRow: {
@@ -15,6 +14,11 @@ const useStyles = createUseStyles({
     flex: 1,
   },
 });
+
+export interface DataRendererContent {
+  label: string;
+  value: string;
+}
 
 interface DataRendererProps {
   content?: DataRendererContent[];
