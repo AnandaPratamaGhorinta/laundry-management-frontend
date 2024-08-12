@@ -20,7 +20,6 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
   return (
     <Sider width={200} className="site-layout-background" collapsed={collapsed}>
       <img src="/logo.png" alt="Logo" className={classes.logo} />
-      {" TEST "}
       <Menu
         mode="inline"
         theme="dark"
