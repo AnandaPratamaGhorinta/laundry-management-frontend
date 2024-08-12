@@ -94,6 +94,7 @@ export function BranchInput({
             label="Phone Number"
             name="phoneNumber"
             className={classes.formItem}
+            initialValue={initialData?.phone_number}
           >
             <Input />
           </FormItem>

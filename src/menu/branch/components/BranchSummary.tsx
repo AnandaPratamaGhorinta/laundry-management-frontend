@@ -2,13 +2,18 @@ import { useMemo } from "react";
 import DataRenderer, {
   DataRendererContent,
 } from "../../../uiComponent/detail/DataRenderer";
+import { BranchData } from "../../../services/dto/branch";
 
 interface BranchSummaryProps {
-  data?: any;
+  data?: BranchData;
 }
 
 export default function BranchSummary({ data }: BranchSummaryProps) {
   const content = useMemo<DataRendererContent[]>(() => {
+    if (!data) {
+      return [];
+    }
+
     return [
       {
         label: "Code",
@@ -28,7 +33,7 @@ export default function BranchSummary({ data }: BranchSummaryProps) {
       },
       {
         label: "Phone Number",
-        value: data?.phoneNumber,
+        value: data?.phone_number,
       },
       {
         label: "Fax",

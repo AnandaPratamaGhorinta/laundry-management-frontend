@@ -1,5 +1,68 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Card, Button, notification } from "antd";
+import { createUseStyles } from "react-jss";
+import BranchSummary from "../../components/BranchSummary";
+import { DataCard } from "../../../../uiComponent/dataCard/DataCard";
 
-export default function BranchAddInput() {
-  return <div>BranchAddInput</div>;
+const useStyles = createUseStyles({
+  container: {
+    padding: "20px",
+    background: "#fff",
+    minHeight: "100vh",
+  },
+  card: {
+    padding: "20px",
+    borderRadius: "8px",
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
+  },
+  details: {
+    marginBottom: "20px",
+  },
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "flex-end",
+    gap: "10px",
+    marginTop: 20,
+  },
+});
+
+export default function BranchEditReview() {
+  const classes = useStyles();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { branchData } = location.state as any;
+
+  const handleSubmit = () => {
+    setTimeout(() => {
+      notification.success({
+        message: "Branch Edited",
+        description: "The branch has been successfully Edited.",
+        placement: "topRight",
+      });
+      navigate("/branch/edit/success", { state: { branchData: branchData } });
+    }, 1000);
+  };
+
+  return (
+    <div className={classes.container}>
+      <h2>Review Edit Branch</h2>
+      <Card className={classes.card}>
+        <DataCard isNew={true}>
+          <BranchSummary data={branchData} />
+        </DataCard>
+        <DataCard isNew={false}>
+          <BranchSummary data={branchData} />
+        </DataCard>
+        <div className={classes.buttonContainer}>
+          <Button onClick={() => navigate("/branch/edit/input")} type="default">
+            Back
+          </Button>
+          <Button onClick={handleSubmit} type="primary">
+            Submit
+          </Button>
+        </div>
+      </Card>
+    </div>
+  );
 }

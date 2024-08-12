@@ -93,7 +93,7 @@ export default function BranchDetail() {
           <Button danger onClick={() => navigate(`/branch/delete/review`)}>
             Delete
           </Button>
-          <Button onClick={() => navigate(`/branch/edit/add`)} type="primary">
+          <Button onClick={() => navigate(`/branch/edit/input`)} type="primary">
             Edit
           </Button>
         </div>

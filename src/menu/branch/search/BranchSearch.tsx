@@ -80,12 +80,8 @@ export default function BranchSearch() {
       key: "action",
       render: (record: any) => (
         <Space size="middle">
-          <EditOutlined
-            onClick={() => navigate(`/branch/edit/input/${record.code}`)}
-          />
-          <DeleteOutlined
-            onClick={() => navigate(`/branch/delete/input/${record.code}`)}
-          />
+          <EditOutlined onClick={() => navigate(`/branch/edit/input`)} />
+          <DeleteOutlined onClick={() => navigate(`/branch/delete/review`)} />
         </Space>
       ),
     },

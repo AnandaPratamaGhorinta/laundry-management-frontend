@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Card, Button } from "antd";
 import { createUseStyles } from "react-jss";
@@ -22,7 +21,7 @@ const useStyles = createUseStyles({
   },
 });
 
-const BranchAddSuccess: React.FC = () => {
+export default function BranchAddSuccess() {
   const classes = useStyles();
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,6 +40,4 @@ const BranchAddSuccess: React.FC = () => {
       </Card>
     </div>
   );
-};
-
-export default BranchAddSuccess;
+}

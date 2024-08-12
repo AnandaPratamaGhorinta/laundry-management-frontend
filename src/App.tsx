@@ -17,6 +17,11 @@ import BranchAddInput from "./menu/branch/add/input/BranchAddInput";
 import BranchAddReview from "./menu/branch/add/review/BranchAddReview";
 import BranchAddSuccess from "./menu/branch/add/success/BranchAddSuccess";
 import BranchDetail from "./menu/branch/detail/BranchDetail";
+import BranchEditInput from "./menu/branch/edit/input/BranchEditInput";
+import BranchEditReview from "./menu/branch/edit/review/BranchEditReview";
+import BranchEditSuccess from "./menu/branch/edit/success/BranchEditSuccess";
+import BranchDeleteReview from "./menu/branch/delete/review/BranchDeleteReview";
+import BranchDeleteSuccess from "./menu/branch/delete/success/BranchDeleteSuccess";
 
 const useStyles = createUseStyles(appStyles);
 
@@ -69,6 +74,26 @@ const App = () => {
                   <Route
                     path="/branch/add/success"
                     element={<BranchAddSuccess />}
+                  />
+                  <Route
+                    path="/branch/edit/input"
+                    element={<BranchEditInput />}
+                  />
+                  <Route
+                    path="/branch/edit/review"
+                    element={<BranchEditReview />}
+                  />
+                  <Route
+                    path="/branch/edit/success"
+                    element={<BranchEditSuccess />}
+                  />
+                  <Route
+                    path="/branch/delete/review"
+                    element={<BranchDeleteReview />}
+                  />
+                  <Route
+                    path="/branch/delete/success"
+                    element={<BranchDeleteSuccess />}
                   />
                 </Routes>
               </div>

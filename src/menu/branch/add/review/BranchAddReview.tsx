@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Card, Button, notification } from "antd";
 import { createUseStyles } from "react-jss";
@@ -25,14 +24,13 @@ const useStyles = createUseStyles({
   },
 });
 
-const BranchAddReview: React.FC = () => {
+export default function BranchAddReview() {
   const classes = useStyles();
   const navigate = useNavigate();
   const location = useLocation();
   const { branchData } = location.state as any;
 
   const handleSubmit = () => {
-    // Mock final submission
     setTimeout(() => {
       notification.success({
         message: "Branch Added",
@@ -59,6 +57,4 @@ const BranchAddReview: React.FC = () => {
       </Card>
     </div>
   );
-};
-
-export default BranchAddReview;
+}
