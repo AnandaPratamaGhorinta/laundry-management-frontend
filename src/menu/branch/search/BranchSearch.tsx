@@ -1,9 +1,10 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Input, Button, Table, Space } from "antd";
+import { Button, Table, Space } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { createUseStyles } from "react-jss";
-import { branchData, mockFetchBranches } from "./mockData";
+import { branchData } from "./mockData";
+import SearchFilter from "./components/SearchFilter";
 
 const useStyles = createUseStyles({
   container: {
@@ -22,6 +23,9 @@ const useStyles = createUseStyles({
     gap: "10px",
     alignItems: "center",
     marginBottom: 60,
+  },
+  tableContainer: {
+    marginTop: "20px",
   },
   addButton: {
     borderColor: "#1890ff",
@@ -42,18 +46,7 @@ export default function BranchSearch() {
   const classes = useStyles();
   const navigate = useNavigate();
   const [data, setData] = useState(branchData);
-  const [filterCode, setFilterCode] = useState("");
-  const [filterName, setFilterName] = useState("");
   const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([]);
-
-  const handleSearch = useCallback(async () => {
-    const result: any = await mockFetchBranches(filterCode, filterName);
-    setData(result);
-  }, [filterCode, filterName]);
-
-  useEffect(() => {
-    handleSearch();
-  }, [handleSearch]);
 
   const columns = [
     {
@@ -112,35 +105,29 @@ export default function BranchSearch() {
       <div className={classes.headerContainer}>
         <h2>Branch</h2>
         <Button
-          ghost
+          ghost={true}
+          type="primary"
           onClick={() => navigate("/branch/add/input")}
           className={classes.addButton}
         >
           Add
         </Button>
       </div>
-      <div className={classes.searchContainer}>
-        <Input
-          placeholder="Filter by Code"
-          value={filterCode}
-          onChange={(e) => setFilterCode(e.target.value)}
+      <SearchFilter setData={setData} />
+      <div className={classes.tableContainer}>
+        <Table
+          columns={columns}
+          dataSource={data}
+          rowKey="code"
+          rowSelection={rowSelection}
+          pagination={{
+            position: ["bottomRight"],
+            pageSizeOptions: ["10", "50", "100"],
+            showSizeChanger: true,
+            defaultPageSize: 10,
+          }}
         />
-        <Input
-          placeholder="Filter by Name"
-          value={filterName}
-          onChange={(e) => setFilterName(e.target.value)}
-        />
-        <Button type="primary" onClick={handleSearch}>
-          Search
-        </Button>
       </div>
-      <Table
-        columns={columns}
-        dataSource={data}
-        rowKey="code"
-        rowSelection={rowSelection}
-        pagination={false} // Remove pagination if not needed
-      />
     </div>
   );
 }

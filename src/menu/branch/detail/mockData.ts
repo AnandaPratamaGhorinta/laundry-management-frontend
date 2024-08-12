@@ -1,24 +1,12 @@
-// Define the interface for branch data
-export interface Branch {
-    code: string;
-    name: string;
-    description: string;
-    address: string;
-    phoneNumber: string;
-    fax: string;
-    email: string;
-    city: string;
-    isActive: boolean;
-  }
-  
-  // Mock data for branches
-  export const branchData: Branch[] = [
+import { BranchData } from "../../../services/dto/branch";
+
+  export const branchData: BranchData[] = [
     {
       code: "001",
       name: "Main Branch",
       description: "Primary branch located in downtown.",
       address: "123 Main St, Downtown",
-      phoneNumber: "555-1234",
+      phone_number: "555-1234",
       fax: "555-5678",
       email: "main@branch.com",
       city: "Metropolis",
@@ -29,7 +17,7 @@ export interface Branch {
       name: "Secondary Branch",
       description: "Branch located in the suburban area.",
       address: "456 Elm St, Suburbia",
-      phoneNumber: "555-8765",
+      phone_number: "555-8765",
       fax: "555-4321",
       email: "secondary@branch.com",
       city: "Metropolis",

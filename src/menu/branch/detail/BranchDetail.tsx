@@ -68,7 +68,7 @@ export default function BranchDetail() {
         </div>
         <div className={classes.detailRow}>
           <span className={classes.label}>Phone Number:</span>
-          <span className={classes.value}>{data.phoneNumber}</span>
+          <span className={classes.value}>{data.phone_number}</span>
         </div>
         <div className={classes.detailRow}>
           <span className={classes.label}>Fax:</span>
@@ -90,7 +90,7 @@ export default function BranchDetail() {
           <Button onClick={() => navigate("/branch")} type="default">
             Back
           </Button>
-          <Button danger onClick={() => navigate(`/branch/delete/add`)}>
+          <Button danger onClick={() => navigate(`/branch/delete/review`)}>
             Delete
           </Button>
           <Button onClick={() => navigate(`/branch/edit/add`)} type="primary">

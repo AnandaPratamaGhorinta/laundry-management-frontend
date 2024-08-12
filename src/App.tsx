@@ -6,10 +6,6 @@ import {
 } from "react-router-dom";
 import { Button, Layout } from "antd";
 import Sidebar from "./uiComponent/Sidebar";
-import DataKos from "./menu/dataKos/DataKos";
-import Kriteria from "./menu/kriteria/Kriteria";
-import Penilaian from "./menu/penilaian/Penilaian";
-import ProcessXGBOOST from "./menu/processXGBOOST/ProcessXGBOOST";
 import Login from "./public/login/Login";
 import { useState } from "react";
 import { createUseStyles } from "react-jss";
@@ -60,10 +56,6 @@ const App = () => {
                 <Routes>
                   <Route path="/" element={<></>} />
                   <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/data-kos" element={<DataKos />} />
-                  <Route path="/kriteria" element={<Kriteria />} />
-                  <Route path="/penilaian" element={<Penilaian />} />
-                  <Route path="/process-xgboost" element={<ProcessXGBOOST />} />
                   <Route path="/branch" element={<BranchSearch />} />
                   <Route path="/branch/detail" element={<BranchDetail />} />
                   <Route

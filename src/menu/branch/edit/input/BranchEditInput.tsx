@@ -1,5 +1,5 @@
-import React from "react";
+import { BranchInput } from "../../components/BranchInput";
 
-export default function BranchAddInput() {
-  return <div>BranchAddInput</div>;
+export default function BranchEditInput() {
+  return <BranchInput reviewRoute="/branch/edit/review" title="Edit Branch" />;
 }
