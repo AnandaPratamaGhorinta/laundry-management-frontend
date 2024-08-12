@@ -22,6 +22,16 @@ import BranchEditReview from "./menu/branch/edit/review/BranchEditReview";
 import BranchEditSuccess from "./menu/branch/edit/success/BranchEditSuccess";
 import BranchDeleteReview from "./menu/branch/delete/review/BranchDeleteReview";
 import BranchDeleteSuccess from "./menu/branch/delete/success/BranchDeleteSuccess";
+import OutletSearch from "./menu/outlet/search/OutletSearch";
+import OutletDetail from "./menu/outlet/detail/OutletDetail";
+import OutletAddInput from "./menu/outlet/add/input/OutletAddInput";
+import OutletAddReview from "./menu/outlet/add/review/OutletAddReview";
+import OutletAddSuccess from "./menu/outlet/add/success/OutletAddSuccess";
+import OutletEditInput from "./menu/outlet/edit/input/OutletEditInput";
+import OutletEditReview from "./menu/outlet/edit/review/OutletEditReview";
+import OutletEditSuccess from "./menu/outlet/edit/success/OutletEditSuccess";
+import OutletDeleteReview from "./menu/outlet/delete/review/OutletDeleteReview";
+import OutletDeleteSuccess from "./menu/outlet/delete/success/OutletDeleteSuccess";
 
 const useStyles = createUseStyles(appStyles);
 
@@ -94,6 +104,40 @@ const App = () => {
                   <Route
                     path="/branch/delete/success"
                     element={<BranchDeleteSuccess />}
+                  />
+                  <Route path="/outlet" element={<OutletSearch />} />
+                  <Route path="/outlet/detail" element={<OutletDetail />} />
+                  <Route
+                    path="/outlet/add/input"
+                    element={<OutletAddInput />}
+                  />
+                  <Route
+                    path="/outlet/add/review"
+                    element={<OutletAddReview />}
+                  />
+                  <Route
+                    path="/outlet/add/success"
+                    element={<OutletAddSuccess />}
+                  />
+                  <Route
+                    path="/outlet/edit/input"
+                    element={<OutletEditInput />}
+                  />
+                  <Route
+                    path="/outlet/edit/review"
+                    element={<OutletEditReview />}
+                  />
+                  <Route
+                    path="/outlet/edit/success"
+                    element={<OutletEditSuccess />}
+                  />
+                  <Route
+                    path="/outlet/delete/review"
+                    element={<OutletDeleteReview />}
+                  />
+                  <Route
+                    path="/outlet/delete/success"
+                    element={<OutletDeleteSuccess />}
                   />
                 </Routes>
               </div>

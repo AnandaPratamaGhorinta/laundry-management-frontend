@@ -2,6 +2,8 @@ import {
   HomeOutlined,
   UserOutlined,
   BranchesOutlined,
+  ShopOutlined,
+  InboxOutlined,
 } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import { Link } from "react-router-dom";
@@ -33,7 +35,13 @@ const Sidebar = ({ collapsed }: SidebarProps) => {
         <Menu.Item key="2" icon={<BranchesOutlined />}>
           <Link to="/branch">Branch</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<UserOutlined />}>
+        <Menu.Item key="3" icon={<ShopOutlined />}>
+          <Link to="/outlet">Outlet</Link>
+        </Menu.Item>
+        <Menu.Item key="4" icon={<InboxOutlined />}>
+          <Link to="/machine">Machine</Link>
+        </Menu.Item>
+        <Menu.Item key="5" icon={<UserOutlined />}>
           <Link to="/user">User</Link>
         </Menu.Item>
       </Menu>
