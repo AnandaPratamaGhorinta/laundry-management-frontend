@@ -49,6 +49,7 @@ export default function SearchFilter({ setData }: SearchFilterProps) {
         <Form
           form={form}
           layout="horizontal"
+          labelAlign="left"
           style={{ maxWidth: 600 }}
           {...formItemLayout}
         >

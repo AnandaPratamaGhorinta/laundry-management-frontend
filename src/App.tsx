@@ -3,8 +3,9 @@ import {
   Route,
   Routes,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
-import { Button, Layout } from "antd";
+import { Button, Layout, Dropdown, Menu, message } from "antd";
 import Sidebar from "./uiComponent/Sidebar";
 import Login from "./public/login/Login";
 import { useState } from "react";
@@ -42,9 +43,25 @@ const App = () => {
   const location = useLocation();
   const isLoginPage = location.pathname === "/login";
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+
   const handleCollapseToggle = () => {
     setCollapsed(!collapsed);
   };
+
+  const handleLogout = () => {
+    message.success("Logged out successfully!");
+    navigate("/login");
+  };
+
+  const menu = (
+    <Menu>
+      <Menu.Item key="logout" onClick={handleLogout}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
+
   return (
     <>
       {!isLoginPage && (
@@ -58,12 +75,14 @@ const App = () => {
                 onClick={handleCollapseToggle}
               />
               <div className={classes.userDetailContainer}>
-                <h1>USER 01</h1>
-                <img
-                  src="/user.png"
-                  alt="User Icon"
-                  className={classes.userIcon}
-                />
+                <h2>USER 01 </h2>
+                <Dropdown overlay={menu} trigger={["click"]}>
+                  <img
+                    src="/user.png"
+                    alt="User Icon"
+                    className={classes.userIcon}
+                  />
+                </Dropdown>
               </div>
             </Header>
             <Content className={classes.content}>
