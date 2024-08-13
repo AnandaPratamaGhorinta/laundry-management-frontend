@@ -33,6 +33,16 @@ import OutletEditReview from "./menu/outlet/edit/review/OutletEditReview";
 import OutletEditSuccess from "./menu/outlet/edit/success/OutletEditSuccess";
 import OutletDeleteReview from "./menu/outlet/delete/review/OutletDeleteReview";
 import OutletDeleteSuccess from "./menu/outlet/delete/success/OutletDeleteSuccess";
+import MachineSearch from "./menu/machine/search/MachineSearch";
+import MachineDetail from "./menu/machine/detail/MachineDetail";
+import MachineAddInput from "./menu/machine/add/input/MachineAddInput";
+import MachineAddReview from "./menu/machine/add/review/MachineAddReview";
+import MachineAddSuccess from "./menu/machine/add/success/MachineAddSuccess";
+import MachineEditInput from "./menu/machine/edit/input/MachineEditInput";
+import MachineEditReview from "./menu/machine/edit/review/MachineEditReview";
+import MachineDeleteReview from "./menu/machine/delete/review/MachineDeleteReview";
+import MachineDeleteSuccess from "./menu/machine/delete/success/MachineDeleteSuccess";
+import MachineEditSuccess from "./menu/machine/edit/success/MachineEditSuccess";
 
 const useStyles = createUseStyles(appStyles);
 
@@ -157,6 +167,40 @@ const App = () => {
                   <Route
                     path="/outlet/delete/success"
                     element={<OutletDeleteSuccess />}
+                  />
+                  <Route path="/machine" element={<MachineSearch />} />
+                  <Route path="/machine/detail" element={<MachineDetail />} />
+                  <Route
+                    path="/machine/add/input"
+                    element={<MachineAddInput />}
+                  />
+                  <Route
+                    path="/machine/add/review"
+                    element={<MachineAddReview />}
+                  />
+                  <Route
+                    path="/machine/add/success"
+                    element={<MachineAddSuccess />}
+                  />
+                  <Route
+                    path="/machine/edit/input"
+                    element={<MachineEditInput />}
+                  />
+                  <Route
+                    path="/machine/edit/review"
+                    element={<MachineEditReview />}
+                  />
+                  <Route
+                    path="/machine/edit/success"
+                    element={<MachineEditSuccess />}
+                  />
+                  <Route
+                    path="/machine/delete/review"
+                    element={<MachineDeleteReview />}
+                  />
+                  <Route
+                    path="/machine/delete/success"
+                    element={<MachineDeleteSuccess />}
                   />
                 </Routes>
               </div>
