@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Button, Input, Layout, Space, Typography, Form } from "antd";
+import {
+  Button,
+  Input,
+  Layout,
+  Space,
+  Typography,
+  Form,
+  notification,
+} from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
+import SubTitle from "../../uiComponent/subTitle/SubTitle";
 
 const { Text } = Typography;
 
@@ -22,6 +31,11 @@ const ResetPasswordPage: React.FC = () => {
     // Mock backend reset password logic
     console.log("Resetting password with:", values);
     // Navigate to login page or show a success message
+    notification.error({
+      message: "Reset PIN Gagal",
+      description: "SCB-0200003: No Handphone tidak terdaftar",
+      placement: "topRight", // You can adjust placement as needed
+    });
   };
 
   const location = useLocation();
@@ -29,6 +43,8 @@ const ResetPasswordPage: React.FC = () => {
 
   return (
     <Layout.Content style={{ padding: "0 20px", height: "100%" }}>
+      <SubTitle subTitle="Reset PIN" />
+
       <div style={{ maxWidth: "400px", margin: "auto", padding: "20px" }}>
         <Form
           onFinish={handleSave}

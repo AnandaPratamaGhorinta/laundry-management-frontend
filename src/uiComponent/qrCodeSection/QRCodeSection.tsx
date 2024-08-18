@@ -51,11 +51,13 @@ const useStyles = createUseStyles({
 interface QRCodeSectionProps {
   qrCodeLink: string;
   hidePromo: boolean;
+  to: string;
 }
 
 export default function QRCodeSection({
   qrCodeLink,
   hidePromo,
+  to,
 }: QRCodeSectionProps) {
   const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -98,7 +100,7 @@ export default function QRCodeSection({
               <Button
                 className={classes.button}
                 type="primary"
-                onClick={() => navigate("/")}
+                onClick={() => navigate(to)}
               >
                 Close
               </Button>

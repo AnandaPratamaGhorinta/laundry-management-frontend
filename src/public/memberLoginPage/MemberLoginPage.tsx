@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Input, Layout, Space, Divider, Form } from "antd";
 import { Link, useNavigate } from "react-router-dom";
+import SubTitle from "../../uiComponent/subTitle/SubTitle";
 
 const MemberLoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -9,10 +10,12 @@ const MemberLoginPage: React.FC = () => {
     // Mock backend login logic
     console.log("Logging in with:", values);
     // Navigate to a different page on successful login
+    navigate("/payment-confirmation");
   };
 
   return (
     <Layout.Content style={{ padding: "0 20px", height: "100%" }}>
+      <SubTitle subTitle="Login" />
       <div style={{ maxWidth: "400px", margin: "auto", padding: "20px" }}>
         <Form
           onFinish={handleLogin}
@@ -68,9 +71,9 @@ const MemberLoginPage: React.FC = () => {
           >
             <Link
               to="/registration"
-              style={{ display: "block", margin: "10px 0", color: "#1890ff" }}
+              style={{ display: "block", margin: "10px 0", color: "#FB0000" }}
             >
-              Register
+              Klik Disini Untuk Registrasi
             </Link>
             {phoneNumber !== "" ? (
               <Link
@@ -78,7 +81,7 @@ const MemberLoginPage: React.FC = () => {
                 state={{ phoneNumber: phoneNumber }}
                 style={{ display: "block", margin: "10px 0", color: "#1890ff" }}
               >
-                Forgot Password?
+                Klik Disini Jika Anda Lupa PIN
               </Link>
             ) : null}
           </Space>

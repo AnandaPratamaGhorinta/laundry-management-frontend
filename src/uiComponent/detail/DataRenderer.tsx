@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
 
 export interface DataRendererContent {
   label: string;
-  value: string;
+  value: any;
 }
 
 interface DataRendererProps {

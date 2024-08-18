@@ -9,6 +9,11 @@ import QRISPaymentPage from "./public/qrisPaymentPage/QRISPaymentPage";
 import MemberLoginPage from "./public/memberLoginPage/MemberLoginPage";
 import RegistrationPage from "./public/registrationPage/RegistrationPage";
 import ForgotPinPage from "./public/forgotPinPage/ForgotPinPage";
+import TransactionHistory from "./menu/member/components/transactionHistory/TransactionHistory";
+import MemberQRScan from "./menu/member/components/memberQRScan/MemberQRScan";
+import TopUp from "./menu/member/components/topUp/TopUp";
+import Payment from "./menu/member/components/payment/Payment";
+import PaymentConfirmation from "./menu/member/components/paymentConfirmaton/PaymentConfirmation";
 
 const useStyles = createUseStyles(appStyles);
 
@@ -30,6 +35,17 @@ const App = () => {
                 <Route path="/login" element={<MemberLoginPage />} />
                 <Route path="/registration" element={<RegistrationPage />} />
                 <Route path="/reset-pin" element={<ForgotPinPage />} />
+                <Route
+                  path="/payment-confirmation"
+                  element={<PaymentConfirmation />}
+                />
+                <Route path="/payment" element={<Payment />} />
+                <Route path="/member-top-up" element={<TopUp />} />
+                <Route path="/member-qr-scan" element={<MemberQRScan />} />
+                <Route
+                  path="/transaction-history"
+                  element={<TransactionHistory />}
+                />
               </Routes>
             </div>
           </Content>

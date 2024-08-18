@@ -1,6 +1,7 @@
 import React from "react";
-import { Button, Input, Layout, Space, Form } from "antd";
+import { Button, Input, Layout, Space, Form, notification } from "antd";
 import { useNavigate } from "react-router-dom";
+import SubTitle from "../../uiComponent/subTitle/SubTitle";
 
 const RegistrationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -9,10 +10,17 @@ const RegistrationPage: React.FC = () => {
     // Mock backend registration logic
     console.log("Registering with:", values);
     // Navigate to a different page on successful registration
+
+    notification.success({
+      message: "Registrasi Sukses",
+      description: "SCB-0200001: Member telah berhasil dibuat",
+      placement: "topRight", // You can adjust placement as needed
+    });
   };
 
   return (
     <Layout.Content style={{ padding: "0 20px", height: "100%" }}>
+      <SubTitle subTitle="Registrasi" />
       <div style={{ maxWidth: "400px", margin: "auto", padding: "20px" }}>
         <Form
           onFinish={handleRegister}
