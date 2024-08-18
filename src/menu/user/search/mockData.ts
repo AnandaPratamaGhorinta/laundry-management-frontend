@@ -1,16 +1,15 @@
 export const content = [
-    { outlet: "Outlet 001", name: "Machine 1",  code: "MCH01" ,type :"Washer" },
-    { outlet: "Outlet 002", name: "Machine 2",  code: "MCH02" ,type :"Washer"},
-    { outlet: "Outlet 003", name: "Machine 3",  code: "MCH03",type :"Dryer"},
+    { user_id: "UUID 001", name: "User 1"},
+    { user_id: "UUID 002", name: "User 2"},
     // Add more mock data as needed
   ];
   
-  export const mockFetchBranches = (filterCode = "", filterName = "" , filterOutlet ="") => {
+  export const mockFetchBranches = (filterCode = "", filterName = "" ) => {
     return new Promise((resolve) => {
       setTimeout(() => {
         const filteredData = content.filter((branch) => {
           return (
-            branch.code.includes(filterCode) && branch.name.includes(filterName)&& branch.outlet.includes(filterOutlet)
+            branch.user_id.includes(filterCode) && branch.name.includes(filterName)
           );
         });
         resolve(filteredData);

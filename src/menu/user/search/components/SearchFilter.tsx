@@ -1,4 +1,4 @@
-import { Collapse, Form, Input, Button, Select } from "antd";
+import { Collapse, Form, Input, Button } from "antd";
 import { useCallback, useState } from "react";
 import { mockFetchBranches } from "../mockData";
 
@@ -19,10 +19,8 @@ interface SearchFilterProps {
   setData: React.Dispatch<
     React.SetStateAction<
       {
-        code: string;
+        user_id: string;
         name: string;
-        outlet: string;
-        type: string;
       }[]
     >
   >;
@@ -32,27 +30,16 @@ export default function SearchFilter({ setData }: SearchFilterProps) {
   const [form] = Form.useForm();
   const [filterCode, setFilterCode] = useState("");
   const [filterName, setFilterName] = useState("");
-  const [filterOutlet, setFilterOutlet] = useState("");
-  console.log(filterOutlet);
-
-  const handleChange = (value: string) => {
-    setFilterOutlet(value);
-  };
 
   const onSearch = useCallback(async () => {
-    const result: any = await mockFetchBranches(
-      filterCode,
-      filterName,
-      filterOutlet
-    );
+    const result: any = await mockFetchBranches(filterCode, filterName);
     setData(result);
-  }, [filterCode, filterName, filterOutlet, setData]);
+  }, [filterCode, filterName, setData]);
 
   const onClean = () => {
     form.resetFields();
     setFilterName("");
     setFilterCode("");
-    setFilterOutlet("");
   };
 
   return (
@@ -65,26 +52,16 @@ export default function SearchFilter({ setData }: SearchFilterProps) {
           style={{ maxWidth: 600 }}
           {...formItemLayout}
         >
-          <Form.Item label="Outlet" name="outlet">
-            <Select
-              onChange={handleChange}
-              options={[
-                { value: "Outlet 001", label: "Outlet 001" },
-                { value: "Outlet 002", label: "Outlet 002" },
-                { value: "Outlet 003", label: "Outlet 003" },
-              ]}
-            />
-          </Form.Item>
-          <Form.Item label="Nama" name="name">
+          <Form.Item label="User ID" name="user_id">
             <Input
-              placeholder="Input Nama"
+              placeholder="Input User ID"
               value={filterName}
               onChange={(e) => setFilterName(e.target.value)}
             />
           </Form.Item>
-          <Form.Item label="Kode" name="code">
+          <Form.Item label="Nama" name="nama">
             <Input
-              placeholder="Input Kode"
+              placeholder="Input Nama"
               value={filterCode}
               onChange={(e) => setFilterCode(e.target.value)}
             />

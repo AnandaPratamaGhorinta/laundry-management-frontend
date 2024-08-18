@@ -43,6 +43,7 @@ import MachineEditReview from "./menu/machine/edit/review/MachineEditReview";
 import MachineDeleteReview from "./menu/machine/delete/review/MachineDeleteReview";
 import MachineDeleteSuccess from "./menu/machine/delete/success/MachineDeleteSuccess";
 import MachineEditSuccess from "./menu/machine/edit/success/MachineEditSuccess";
+import UserSearch from "./menu/user/search/UserSearch";
 
 const useStyles = createUseStyles(appStyles);
 
@@ -202,6 +203,7 @@ const App = () => {
                     path="/machine/delete/success"
                     element={<MachineDeleteSuccess />}
                   />
+                  <Route path="/user" element={<UserSearch />} />
                 </Routes>
               </div>
             </Content>

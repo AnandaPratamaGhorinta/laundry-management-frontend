@@ -8,7 +8,7 @@ const useStyles = createUseStyles({
   label: {
     width: "150px",
     fontWeight: "bold",
-    marginRight: 150,
+    marginRight: 100,
   },
   value: {
     flex: 1,

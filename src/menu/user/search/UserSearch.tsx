@@ -42,7 +42,7 @@ const useStyles = createUseStyles({
   },
 });
 
-export default function MachineSearch() {
+export default function UserSearch() {
   const classes = useStyles();
   const navigate = useNavigate();
   const [data, setData] = useState(content);
@@ -50,44 +50,29 @@ export default function MachineSearch() {
 
   const columns = [
     {
-      title: "Outlet",
-      dataIndex: "outlet",
-      key: "outlet",
-      sorter: (a: any, b: any) => a.outlet.localeCompare(b.outlet),
-    },
-    {
-      title: "Kode Mesin",
-      dataIndex: "code",
-      key: "code",
+      title: "User ID",
+      dataIndex: "user_id",
+      key: "user_id",
       render: (text: string) => (
-        <span
-          className={classes.link}
-          onClick={() => navigate(`/machine/detail`)}
-        >
+        <span className={classes.link} onClick={() => navigate(`/user/detail`)}>
           {text}
         </span>
       ),
       sorter: (a: any, b: any) => a.code.localeCompare(b.code),
     },
     {
-      title: "Nama Mesin",
+      title: "Nama",
       dataIndex: "name",
       key: "name",
       sorter: (a: any, b: any) => a.name.localeCompare(b.name),
-    },
-    {
-      title: "Tipe Mesin",
-      dataIndex: "type",
-      key: "type",
-      sorter: (a: any, b: any) => a.type.localeCompare(b.type),
     },
     {
       title: "Action",
       key: "action",
       render: (record: any) => (
         <Space size="middle">
-          <EditOutlined onClick={() => navigate(`/machine/edit/input`)} />
-          <DeleteOutlined onClick={() => navigate(`/machine/delete/review`)} />
+          <EditOutlined onClick={() => navigate(`/user/edit/input`)} />
+          <DeleteOutlined onClick={() => navigate(`/user/delete/review`)} />
         </Space>
       ),
     },
@@ -105,11 +90,11 @@ export default function MachineSearch() {
   return (
     <div className={classes.container}>
       <div className={classes.headerContainer}>
-        <h2>Machine</h2>
+        <h2>User</h2>
         <Button
           ghost={true}
           type="primary"
-          onClick={() => navigate("/machine/add/input")}
+          onClick={() => navigate("/user/add/input")}
           className={classes.addButton}
         >
           Add

@@ -2,14 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import WrappedApp from "./App";
+// import WrappedApp from "./App"       TEMPORARY;
+import WrappedPaymentApp from "./PaymentApp";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <WrappedApp />
+    <WrappedPaymentApp />
   </React.StrictMode>
 );
 
