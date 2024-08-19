@@ -92,10 +92,10 @@ const ResetPasswordPage: React.FC = () => {
             style={{ width: "100%", marginTop: 20 }}
           >
             <Button type="primary" style={{ flex: 1 }} htmlType="submit">
-              Save
+              Simpan
             </Button>
             <Button style={{ flex: 1 }} onClick={() => navigate("/login")}>
-              Back
+              Kembali
             </Button>
           </Space>
           <Space
@@ -103,8 +103,8 @@ const ResetPasswordPage: React.FC = () => {
             size="small"
             style={{ width: "100%", textAlign: "center", marginTop: "20px" }}
           >
-            <Text>Countdown: {countdown} seconds</Text>
-            <Text>Check your WhatsApp message</Text>
+            <Text>Kirim kembali OTP dalam {countdown}</Text>
+            <Text>Silahkan cek OTP di aplikasi WhatsApp Anda</Text>
           </Space>
         </Form>
       </div>
