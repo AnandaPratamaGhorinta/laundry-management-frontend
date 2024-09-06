@@ -29,6 +29,13 @@ const useStyles = createUseStyles({
     marginBottom: "20px",
     width: 300,
     height: 90,
+    backgroundColor: "#FFD300",
+    borderColor: "#FFD300",
+    color: "#000 !important", // Black text to contrast with yellow background
+    "&:hover": {
+      backgroundColor: "#E6B800 !important", // Darker yellow on hover
+      borderColor: "#E6B800 !important",
+    },
   },
   messageContainer: {
     bottom: "20px",
@@ -107,17 +114,16 @@ export default function QRCodeSection({
             </>
           </div>
           <DataRenderer content={dataPembayaran} />
+          <div className={classes.messageContainer}>
+            <Text className={classes.message2}>
+              Silahkan menyelesaikan pembayaran dengan screenshot QR code dan
+              upload di aplikasi Bank Anda.
+            </Text>
+          </div>
         </div>
       ) : (
         <p>Loading QR Code...</p>
       )}
-
-      <div className={classes.messageContainer}>
-        <Text className={classes.message2}>
-          Silahkan menyelesaikan pembayaran dengan screenshot QR code dan upload
-          di aplikasi Bank Anda.
-        </Text>
-      </div>
     </Layout.Content>
   );
 }

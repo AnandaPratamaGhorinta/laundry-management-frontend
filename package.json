@@ -2,7 +2,7 @@
   "name": "laundry-management-frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "proxy": "http://jcl.my.id",
   "dependencies": {
     "@ant-design/icons": "^5.4.0",
     "@react-pdf/renderer": "^3.4.4",

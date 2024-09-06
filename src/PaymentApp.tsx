@@ -14,6 +14,7 @@ import MemberQRScan from "./menu/member/components/memberQRScan/MemberQRScan";
 import TopUp from "./menu/member/components/topUp/TopUp";
 import Payment from "./menu/member/components/payment/Payment";
 import PaymentConfirmation from "./menu/member/components/paymentConfirmaton/PaymentConfirmation";
+import QRISPaymentConfirmationPage from "./public/qrisPaymentConfirmationPage/QRISPaymentConfirmationPage";
 
 const useStyles = createUseStyles(appStyles);
 
@@ -45,6 +46,10 @@ const App = () => {
                 <Route
                   path="/transaction-history"
                   element={<TransactionHistory />}
+                />
+                <Route
+                  path="qris-payment-confirmation"
+                  element={<QRISPaymentConfirmationPage />}
                 />
               </Routes>
             </div>

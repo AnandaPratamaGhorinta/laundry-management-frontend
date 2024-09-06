@@ -13,8 +13,18 @@ const useStyles = createUseStyles({
     padding: "20px", // Add padding for spacing
   },
   button: {
-    width: "200px", // Fixed width
-    height: "60px", // Fixed height
+    width: "330px", // Fixed width
+    height: "270px", // Fixed height
+    fontSize: "16px", // Font size
+    margin: "10px", // Space around buttons
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden", // Hide overflow
+    textOverflow: "ellipsis", // Add ellipsis for overflow text
+    whiteSpace: "nowrap", // Prevent text from wrapping,
+  },
+  qris: {
     fontSize: "16px", // Font size
     margin: "10px", // Space around buttons
     display: "flex",
@@ -33,20 +43,25 @@ export default function PaymentPage() {
     <Layout.Content style={{ padding: "0 50px", height: "100%" }}>
       <SubTitle subTitle="Pembayaran" />
       <div className={classes.container}>
-        <Button
+        {/* <Button
           className={classes.button}
-          type="primary"
+          type="default"
           onClick={() => navigate("/qris")}
-        >
-          QRIS
-        </Button>
+        > */}
         <Button
+          type="link"
+          className={classes.button}
+          onClick={() => navigate("/qris-payment-confirmation")}
+        >
+          <img className={classes.button} src="/qrisLogo.png" alt="qris" />
+        </Button>
+        {/* <Button
           className={classes.button}
           type="primary"
           onClick={() => navigate("/login")}
         >
           E-wallet
-        </Button>
+        </Button> */}
       </div>
     </Layout.Content>
   );
