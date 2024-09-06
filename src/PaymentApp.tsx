@@ -48,7 +48,7 @@ const App = () => {
                   element={<TransactionHistory />}
                 />
                 <Route
-                  path="qris-payment-confirmation"
+                  path="/qris-payment-confirmation/:code"
                   element={<QRISPaymentConfirmationPage />}
                 />
               </Routes>

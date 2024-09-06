@@ -4,8 +4,9 @@ import DataRenderer, {
   DataRendererContent,
 } from "../../uiComponent/detail/DataRenderer";
 import SubTitle from "../../uiComponent/subTitle/SubTitle";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { createUseStyles } from "react-jss";
+import { qrResponse } from "./temp";
 
 const useStyles = createUseStyles({
   button: {
@@ -21,6 +22,7 @@ const useStyles = createUseStyles({
 
 export default function QRISPaymentConfirmationPage() {
   const navigate = useNavigate();
+  const { code } = useParams<{ code: string }>(); // Get machine code from URL
   const [loading, setLoading] = useState(false);
   const [durations, setDurations] = useState<
     { value: string; label: string }[]
@@ -33,7 +35,7 @@ export default function QRISPaymentConfirmationPage() {
     const fetchDurations = async () => {
       try {
         const response = await fetch(
-          "/scb-transaction/public/getDuration/004",
+          `/scb-transaction/public/getDuration/${code}`, // Use machine code from URL
           {
             method: "GET",
             headers: {
@@ -62,17 +64,18 @@ export default function QRISPaymentConfirmationPage() {
       }
     };
 
-    fetchDurations();
-  }, []);
+    if (code) {
+      fetchDurations();
+    }
+  }, [code]);
+
   const handlePayment = async (values: any) => {
     setLoading(true);
 
     const requestBody = {
-      machineCode: "004",
+      machineCode: code,
       duration: values.waktu,
     };
-
-    console.log("Request Body:", requestBody); // Log the request body
 
     try {
       const response = await fetch("/scb-transaction/public/getQRIS", {
@@ -85,17 +88,15 @@ export default function QRISPaymentConfirmationPage() {
       });
 
       if (!response.ok) throw new Error("Failed to fetch QRIS");
-
       const data = await response.json();
-      console.log("Response Data:", data); // Log the response data
 
-      if (data.qrImage) {
-        navigate("/next-page", { state: { qrImage: data.qrImage } });
+      if (qrResponse.qrImage) {
+        navigate("/qris", { state: { qrImage: data.qrImage } });
       } else {
         message.error("No QR image returned");
       }
     } catch (error) {
-      console.error("Fetch Error:", error); // Log detailed error
+      console.error("Fetch Error:", error);
       message.error(`${error}`);
     } finally {
       setLoading(false);
@@ -110,10 +111,10 @@ export default function QRISPaymentConfirmationPage() {
     return [
       {
         label: "Kode Mesin",
-        value: "W4",
+        value: code || "N/A", // Display the machine code from the URL
       },
     ];
-  }, []);
+  }, [code]);
 
   const totalPembayaran = useMemo<DataRendererContent[]>(() => {
     return [

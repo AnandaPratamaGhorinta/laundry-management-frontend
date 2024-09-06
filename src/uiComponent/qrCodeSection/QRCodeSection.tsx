@@ -3,9 +3,6 @@ import { Button, Layout, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import SubTitle from "../../uiComponent/subTitle/SubTitle";
-import DataRenderer, {
-  DataRendererContent,
-} from "../../uiComponent/detail/DataRenderer";
 
 const { Text } = Typography;
 
@@ -76,24 +73,24 @@ export default function QRCodeSection({
     }, 1000);
   }, [qrCodeLink]);
 
-  const dataPembayaran = useMemo<DataRendererContent[]>(() => {
-    const promoSection = hidePromo
-      ? []
-      : [
-          {
-            label: "Promo",
-            value: "Rp. 5000",
-          },
-        ];
+  // const dataPembayaran = useMemo<DataRendererContent[]>(() => {
+  //   const promoSection = hidePromo
+  //     ? []
+  //     : [
+  //         {
+  //           label: "Promo",
+  //           value: "Rp. 5000",
+  //         },
+  //       ];
 
-    return [
-      ...promoSection,
-      {
-        label: "Total Pembayaran",
-        value: "Rp. 5000",
-      },
-    ];
-  }, [hidePromo]);
+  //   return [
+  //     ...promoSection,
+  //     {
+  //       label: "Total Pembayaran",
+  //       value: "Rp. 5000",
+  //     },
+  //   ];
+  // }, [hidePromo]);
 
   return (
     <Layout.Content style={{ padding: "0", height: "100%", margin: 0 }}>
@@ -103,7 +100,11 @@ export default function QRCodeSection({
           <Text className={classes.message1}>Valid untuk 30 menit</Text>
           <div className={classes.container}>
             <>
-              <img src={qrCodeUrl} alt="QR Code" className={classes.qrCode} />
+              <img
+                src={`data:image/png;base64,${qrCodeUrl}`}
+                alt="QR Code"
+                className={classes.qrCode}
+              />
               <Button
                 className={classes.button}
                 type="primary"
@@ -113,13 +114,11 @@ export default function QRCodeSection({
               </Button>
             </>
           </div>
-          <DataRenderer content={dataPembayaran} />
-          <div className={classes.messageContainer}>
-            <Text className={classes.message2}>
-              Silahkan menyelesaikan pembayaran dengan screenshot QR code dan
-              upload di aplikasi Bank Anda.
-            </Text>
-          </div>
+          {/* <DataRenderer content={dataPembayaran} /> */}
+          <Text className={classes.message2}>
+            Silahkan menyelesaikan pembayaran dengan screenshot QR code dan
+            upload di aplikasi Bank Anda.
+          </Text>
         </div>
       ) : (
         <p>Loading QR Code...</p>
