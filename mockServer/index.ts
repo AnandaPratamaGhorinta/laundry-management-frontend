@@ -6,6 +6,7 @@ app.get("/users", (request: Request, response: Response) => {
   response.json([
     { id: 546, username: "John" },
     { id: 894, username: "Mary" },
+    { id: 124, username: "Test" },
   ]);
 });
 
