@@ -3,10 +3,7 @@ import express, { Request, Response } from "express";
 const app = express();
 const PORT = "4000";
 app.get("/users", (request: Request, response: Response) => {
-  response.json([
-    { id: 546, username: "John" },
-    { id: 894, username: "Mary" },
-  ]);
+  response.json([{ id: 546, username: "John" }]);
 });
 
 app.delete("/users", (request: Request, response: Response) => {
